@@ -1,41 +1,25 @@
 #include "main.h"
 
 /**
- * get_precision - Calculates the precision for printing
- * @format: Formatted string in which to print the arguments
- * @i: List of arguments to be printed.
- * @list: list of arguments.
+ * print_rev - prints in reverse
+ * @params: List of arguments to be printed.
+ * @ap: list of arguments.
  *
- * Return: Precision.
+ * Return: new pointer.
  */
-int get_precision(const char *format, int *i, va_list list)
+int print_rev(va_list ap, params_t *params)
 {
-	int curr_i = *i + 1;
-	int precision = -1;
+	int len, sum = 0;
+	char *str = va_arg(ap, char *);
+	(void)params;
 
-	if (format[curr_i] != '.')
-		return (precision);
-
-	precision = 0;
-
-	for (curr_i += 1; format[curr_i] != '\0'; curr_i++)
+	if (str)
 	{
-		if (is_digit(format[curr_i]))
-		{
-			precision *= 10;
-			precision += format[curr_i] - '0';
-		}
-		else if (format[curr_i] == '*')
-		{
-			curr_i++;
-			precision = va_arg(list, int);
-			break;
-		}
-		else
-			break;
+		for (len = 0; *str; str++)
+			len++;
+		str--;
+		for (; len > 0; len--, str--)
+			sum += _putchar(*str);
 	}
-
-	*i = curr_i - 1;
-
-	return (precision);
+	return (sum);
 }
