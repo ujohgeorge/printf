@@ -7,7 +7,7 @@ i#include "main.h"
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
- * @precision: Precision specification
+ * @precision: specifies the precision
  * @size: Size specifier
  * Return: Number of chars printed.
  */
