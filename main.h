@@ -39,6 +39,7 @@ struct fmt
  */
 typedef struct fmt fmt_t;
 
+int print_rev(va_list ap, params_t *params);
 char *get_precision(char *p, params_t *params, va_list ap);
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
